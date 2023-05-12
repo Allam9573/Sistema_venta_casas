@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% include 'includes/navbar.html'%}
+{% block title %}
+Cuenta creada
+{{super()}}
+{%endblock%}
+{% block content %}
+<div class="container d-flex flex-column justify-content-center align-items-center h-75">
+<h1 class="display-1">Cuenta creada de forma exitosa</h1>
+<a href="{{url_for('index')}}" class="btn btn-success w-25 btn-lg">Ok</a>
+</div>
+{%endblock%}
