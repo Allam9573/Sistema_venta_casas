@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, Blueprint
+from flask import render_template, request, Blueprint, redirect, url_for
 from app.modules.db.db import get_connection
 from app.modules.models.House import House
 
@@ -26,7 +26,10 @@ def register_house():
 def list_houses():
     con = get_connection()
     cursor = con.cursor(buffered=True)
-    cursor.execute('SELECT * FROM casas')
+    cursor.execute('SELECT * FROM casas ORDER BY direccion ASC')
     con.commit()
     data = cursor.fetchall()
     return render_template('house/list_houses.html', data=data)
+
+
+
