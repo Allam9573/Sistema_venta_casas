@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% include 'includes/navbar.html'%}
+{% block content %}
+<!-- <img src="../../static/images/h3" width="300" alt=""> -->
+<h2 class="text-center display-3 my-5">Viviendas en ventas:</h2>
+{% if data %}
+<div class="container d-flex">
+    {% for item in data %}
+    <div class="card mx-3" style="width: 18rem;">
+        <img src="{{item[4]}}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{item[1]}}</h5>
+            <p class="card-text">Lps. {{item[3]}}</p>
+            <span><strong>Propietario: </strong>{{item[2]}}</span>
+            <a href="#" class="btn btn-primary">Ver detalles</a>
+        </div>
+    </div>
+    {%endfor%}
+</div>
+{% else %}
+<h2>No hay viviendas registradas</h2>
+{% endif%}
+<div class="container">
+    <a href="{{url_for('index')}}" class="btn btn-primary">Home</a>
+</div>
+{%endblock%}

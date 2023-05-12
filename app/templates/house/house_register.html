@@ -1,1 +1,21 @@
 {% extends 'base.html' %}
+{% block content %}
+<h2>Registro de Casa</h2>
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="card">
+        <div class="card-header">
+            <h3>Vender una casa</h3>
+        </div>
+        <div class="card-body">
+            <form action="{{url_for('house.register_house')}}" method="post">
+                <input type="text" name="direccion" class="form-control my-2" placeholder="Direccion" id="">
+                <input type="text" name="propietario" class="form-control my-2" placeholder="Propietario" id="">
+                <input type="text" name="precio" class="form-control my-2" placeholder="Precio" id="">
+                <input type="text" name="foto" class="form-control my-2" placeholder="Url foto" id="">
+                <input type="submit" class="btn btn-success w-100" value="Registrar">
+            </form>
+        </div>
+        <a href="{{url_for('index')}}" class="btn btn-primary my-2">Home</a>
+    </div>
+</div>
+{%endblock%}

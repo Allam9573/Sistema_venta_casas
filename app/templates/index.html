@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Hello Flask</h1>
-</body>
-</html>
+{% extends 'base.html' %}
+{% include 'includes/navbar.html'%}
+{% block content %}
+<a href="{{url_for('auth.login')}}" class="btn btn-primary">Iniciar Sesion</a>
+<a href="{{url_for('auth.register')}}" class="btn btn-primary">Crear Cuenta</a>
+<a href="{{url_for('house.register_house')}}" class="btn btn-primary">Vender una casa</a>
+<a href="{{url_for('house.list_houses')}}" class="btn btn-primary">Ver casas</a>
+{%endblock%}
