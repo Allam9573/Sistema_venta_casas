@@ -7,11 +7,12 @@ create table casas(
     precio decimal(10,2) not null,
     foto varchar(100) not null
 );
-
+drop table usuarios;
 create table usuarios(
     id int primary key auto_increment,
     nombre varchar(100) not null,
     correo varchar(100) not null,
     usuario varchar(100) not null,
-    contrasenia varchar(100) not null
-)
+    contrasenia text not null
+);
+select * from usuarios;
