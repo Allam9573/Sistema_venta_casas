@@ -32,4 +32,26 @@ def list_houses():
     return render_template('house/list_houses.html', data=data)
 
 
+@bp.route('/edit_info/<id>')
+def edit_info(id):
+    con = get_connection()
+    cursor = con.cursor(buffered=True)
+    cursor.execute('SELECT * FROM casas WHERE id=%s', [id])
+    con.commit()
+    data = cursor.fetchall()
+    return render_template('house/edit_house.html', data=data)
 
+
+@bp.route('/update', methods=['POST', 'GET'])
+def update():
+    if request.method == 'POST':
+        id = int(request.form['id'])
+        direccion = request.form['direccion']
+        propietario = request.form['propietario']
+        precio = request.form['precio']
+        con = get_connection()
+        cursor = con.cursor(buffered=True)
+        cursor.execute('UPDATE casas SET direccion=%s, propietario=%s, precio=%s WHERE id=%s',
+                       (direccion, propietario, precio, id))
+        con.commit()
+        return redirect(url_for('house.list_houses'))
