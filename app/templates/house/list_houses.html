@@ -16,7 +16,7 @@ Viviendas en venta
             <h5 class="card-title">{{item[1]}}</h5>
             <p class="card-text">Lps. {{item[3]}}</p>
             <span><strong>Propietario: </strong>{{item[2]}}</span>
-            <a href="#" class="btn btn-danger mt-3">Ver detalles</a>
+            <a href="{{url_for('house.house_details', id=item.0)}}" target="__blank" class="btn btn-danger mt-3">Ver detalles</a>
             <a href="{{url_for('house.edit_info', id=item.0)}}" class="btn btn-outline-danger mt-3">Editar</a>
         </div>
     </div>

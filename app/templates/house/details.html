@@ -1,12 +1,36 @@
 {% extends 'base.html'%}
+{% if data %}
 {% block title %}
-Actualizacion Exitosa
+{{data.1}}
 {{super()}}
 {% endblock%}
 {% include 'includes/navbar.html' %}
 {% block content %}
-<div class="container mt-5 text-center d-flex flex-column justify-content-center align-items-center">
-    <h1 class="display-1 mt-5">Informacion actualizada exitosamente</h1>
-    <a href="{{url_for('index')}}" class="btn btn-danger btn-lg">Home</a>
+<h1 class="display-2 text-center my-5">Casa {{data.1}}</h1>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-8">
+            <div class="card">
+                <img src="{{data.4}}" class="card-img-top" alt="..." height="500">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-danger">Go somewhere</a>
+                  <a href="#" class="btn btn-outline-primary">Contactar al vendedor</a>
+                </div>
+              </div>
+        </div>
+        <div class="col-4">
+            <div class="card h-75">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                  <a href="#" class="btn btn-outline-primary">Go somewhere</a>
+                </div>
+              </div>
+        </div>
+    </div>
 </div>
 {%endblock%}
+{%endif%}

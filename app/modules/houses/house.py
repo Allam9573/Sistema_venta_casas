@@ -75,3 +75,13 @@ def house_delete(id):
     cursor.execute('DELETE FROM casas WHERE id=%s', [id])
     con.commit()
     return redirect(url_for('house.remove_success'))
+
+
+@bp.route('/house_details/<id>')
+def house_details(id):
+    con = get_connection()
+    cursor = con.cursor(buffered=True)
+    cursor.execute('SELECT * FROM casas WHERE id=%s', [id])
+    con.commit()
+    data = cursor.fetchall()
+    return render_template('house/details.html', data=data[0])
