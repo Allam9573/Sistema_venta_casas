@@ -7,4 +7,3 @@
 * Ahora debera instalar los modulos correspondientes con el siguiente comando: <br>
 "pip install -r requirements.txt"
 * Use el comando "sh run.sh" y esto debera desplegar el proyecto en el servidor de Flask.
-

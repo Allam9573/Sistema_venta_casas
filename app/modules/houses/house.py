@@ -84,4 +84,7 @@ def house_details(id):
     cursor.execute('SELECT * FROM casas WHERE id=%s', [id])
     con.commit()
     data = cursor.fetchall()
-    return render_template('house/details.html', data=data[0])
+    cursor.execute('SELECT * FROM casas')
+    con.commit()
+    data_2 = cursor.fetchall()
+    return render_template('house/details.html', data=data[0], data_2=data_2)
