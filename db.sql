@@ -5,7 +5,7 @@ create table casas(
     direccion varchar(100) not null,
     propietario varchar(100) not null,
     precio decimal(10,2) not null,
-    foto varchar(100) not null
+    foto text not null
 );
 drop table usuarios;
 create table usuarios(
@@ -15,4 +15,3 @@ create table usuarios(
     usuario varchar(100) not null,
     contrasenia text not null
 );
-select * from usuarios;

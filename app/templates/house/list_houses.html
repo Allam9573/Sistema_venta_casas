@@ -6,9 +6,9 @@ Viviendas en venta
 {%endblock%}
 {% block content %}
 <!-- <img src="../../static/images/h3" width="300" alt=""> -->
-<h2 class="text-center display-3 my-5">Viviendas en venta:</h2>
 {% if data %}
-<div class="container d-flex">
+<h2 class="text-center display-3 my-5">Viviendas en venta:</h2>
+<div class="container grid gap-3 d-flex">
     {% for item in data %}
     <div class="card mx-3" style="width: 18rem;">
         <img src="{{item[4]}}" class="card-img-top" alt="...">
@@ -23,9 +23,12 @@ Viviendas en venta
     {%endfor%}
 </div>
 {% else %}
-<h2>No hay viviendas registradas</h2>
+<div class="container text-center d-flex flex-column justify-content-center align-items-center vh-100">
+    <h1 class="display-1">No hay viviendas registradas</h1>
+    <a href="{{url_for('house.register_house')}}" class="btn btn-lg btn-danger">Crear Venta</a>
+</div>
 {% endif%}
-<div class="container">
-    <a href="{{url_for('index')}}" class="btn btn-primary">Home</a>
+<div class="container text-center">
+    <a href="{{url_for('house.register_house')}}" class="btn btn-lg btn-danger mt-5">Crear Venta</a>
 </div>
 {%endblock%}

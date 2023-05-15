@@ -1,0 +1,12 @@
+{% extends 'base.html'%}
+{% block title %}
+Actualizacion Exitosa
+{{super()}}
+{% endblock%}
+{% include 'includes/navbar.html' %}
+{% block content %}
+<div class="container mt-5 text-center d-flex flex-column justify-content-center align-items-center">
+    <h1 class="display-1 mt-5">Informacion actualizada exitosamente</h1>
+    <a href="{{url_for('index')}}" class="btn btn-danger btn-lg">Home</a>
+</div>
+{%endblock%}

@@ -39,7 +39,7 @@ def edit_info(id):
     cursor.execute('SELECT * FROM casas WHERE id=%s', [id])
     con.commit()
     data = cursor.fetchall()
-    return render_template('house/edit_house.html', data=data)
+    return render_template('house/edit_house.html', data=data[0])
 
 
 @bp.route('/update', methods=['POST', 'GET'])
@@ -49,9 +49,29 @@ def update():
         direccion = request.form['direccion']
         propietario = request.form['propietario']
         precio = request.form['precio']
+        foto = request.form['foto']
         con = get_connection()
         cursor = con.cursor(buffered=True)
-        cursor.execute('UPDATE casas SET direccion=%s, propietario=%s, precio=%s WHERE id=%s',
-                       (direccion, propietario, precio, id))
+        cursor.execute('UPDATE casas SET direccion=%s, propietario=%s, precio=%s, foto=%s WHERE id=%s',
+                       (direccion, propietario, precio, foto, id))
         con.commit()
-        return redirect(url_for('house.list_houses'))
+        return redirect(url_for('house.success'))
+
+
+@bp.route('/edit_success')
+def success():
+    return render_template('house/edit_success.html')
+
+
+@bp.route('/delete_success')
+def remove_success():
+    return render_template('house/remove_success.html')
+
+
+@bp.route('/delete_house/<id>')
+def house_delete(id):
+    con = get_connection()
+    cursor = con.cursor(buffered=True)
+    cursor.execute('DELETE FROM casas WHERE id=%s', [id])
+    con.commit()
+    return redirect(url_for('house.remove_success'))

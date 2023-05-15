@@ -6,7 +6,7 @@ Editar Informacion
 {%endblock%}
 {% block content %}
 {% if data %}
-<h2 class="text-center my-5">Casa de {{data.0.1}}</h2>
+<h2 class="text-center my-5">Casa de {{data.1}}</h2>
 <div class="d-flex justify-content-center align-items-center vh-auto">
     <div class="card">
         <div class="card-header">
@@ -14,12 +14,14 @@ Editar Informacion
         </div>
         <div class="card-body">
             <form action="{{url_for('house.update')}}" method="post">
-                <input type="hidden" value="{{data.0.0}}" name="id">
-                <input type="text" name="direccion" value="{{data.0.1}}" class="form-control my-2" placeholder="Direccion" id="">
-                <input type="text" name="propietario" value="{{data.0.2}}" class="form-control my-2" placeholder="Propietario" id="">
-                <input type="text" name="precio" value="{{data.0.3}}" class="form-control my-2" placeholder="Precio" id="">
+                <input type="hidden" value="{{data.0}}" name="id">
+                <input type="text" name="direccion" value="{{data.1}}" class="form-control my-2" placeholder="Direccion" id="">
+                <input type="text" name="propietario" value="{{data.2}}" class="form-control my-2" placeholder="Propietario" id="">
+                <input type="text" name="precio" value="{{data.3}}" class="form-control my-2" placeholder="Precio" id="">
+                <input type="text" name="foto" value="{{data.4}}" class="form-control my-2" placeholder="Url foto" id="">
                 <input type="submit" class="btn btn-success w-100" value="Guardar">
-                <a href="{{url_for('index')}}" class="btn btn-primary my-2 w-100">Home</a>
+                <a href="{{url_for('house.house_delete', id=data.0)}}" class="btn btn-danger my-2 w-100">Eliminar</a>
+                <a href="{{url_for('index')}}" class="btn btn-outline-primary w-100">Home</a>
             </form>
         </div>
     </div>
