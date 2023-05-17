@@ -1,0 +1,47 @@
+{% extends 'base.html'%}
+{% include 'includes/navbar.html'%}
+{% block title %}
+Panel Admin
+{{super()}}
+{%endblock%}
+{% block content%}
+{% if data %}
+<div class="container">
+    <h1 class="text-center display-1 my-5">Panel Administrativo</h1>
+    <table class="table">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col">#COD</th>
+                <th scope="col">Direccion</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Vendedor</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in data %}
+            <tr>
+                <th scope="row">{{item.0}}</th>
+                <td>{{item.1}}</td>
+                <td>Lps. {{item.3}}</td>
+                <td>{{item.2}}</td>
+                <td>
+                    <a href="{{url_for('house.edit_info', id=item.0)}}" class="btn btn-primary">Editar</a>
+                    <a href="{{url_for('house.house_delete', id=item.0)}}" class="btn btn-outline-danger">Eliminar</a>
+                </td>
+            </tr>
+            {%endfor%}
+
+        </tbody>
+    </table>
+</div>
+{% else %}
+<div class="container text-center">
+    <h1 class="text-center display-1 my-5">Panel Administrativo</h1>
+    <h2 class="text-center display-4 text-lead my-5">No hay registros en la base de datos.</h2>
+    <a href="{{url_for('index')}}" class="btn btn-lg btn-danger px-5 py-2">Inicio</a>
+</div>
+{%endif%}
+
+
+{%endblock%}
