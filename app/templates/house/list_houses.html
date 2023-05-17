@@ -10,7 +10,11 @@ Viviendas en venta
 <div class="container grid gap-3 d-flex">
     {% for item in data %}
     <div class="card mx-3" style="width: 18rem;">
+        {% if item.4 %}
         <img src="{{item[4]}}" class="card-img-top" alt="...">
+        {%else%}
+        <img src="{{url_for('static', filename='images/default_foto.png')}}" class="card-img-top" alt="...">
+        {%endif%}
         <div class="card-body">
             <h5 class="card-title">{{item[1]}}</h5>
             <p class="card-text"><strong>Precio: </strong>Lps. {{item[3]}}</p>

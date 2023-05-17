@@ -11,7 +11,12 @@
     <div class="row">
         <div class="col-8">
             <div class="card">
-                <img src="{{data.4}}" class="card-img-top" alt="..." height="500">
+                {% if data.4 %}
+                <img src="{{item[4]}}" class="card-img-top" alt="...">
+                {%else%}
+                <img src="{{url_for('static', filename='images/default_foto.png')}}" width="20px" class="card-img-top"
+                    alt="...">
+                {%endif%}
                 <div class="card-body">
                     <h5 class="card-title my-2"><i class="bi bi-geo-alt-fill mx-1 fs-4 text-danger"></i>{{data.1}}</h5>
                     <h4 class="my-2"><i class="bi bi-tags mx-2 fs-5 text-primary"></i>Lps. {{data.3}}</h4>
@@ -81,9 +86,9 @@
                                 aria-label="Slide 2"></button>
                             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
                                 aria-label="Slide 3"></button>
-                                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"
+                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"
                                 aria-label="Slide 4"></button>
-                                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4"
+                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4"
                                 aria-label="Slide 5"></button>
                         </div>
                         <div class="carousel-inner">
@@ -97,11 +102,12 @@
                             <div class="carousel-item">
                                 <img src="{{data[4]}}" class="d-block w-100" alt="...">
                                 <div class="carousel-caption d-none d-md-block">
-                                    <a href="{{url_for('house.house_details', id=data[0])}}" class="btn btn-primary">Ver casa</a>
+                                    <a href="{{url_for('house.house_details', id=data[0])}}" class="btn btn-primary">Ver
+                                        casa</a>
                                 </div>
                             </div>
                             {%endfor%}
-                            
+
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
                             data-bs-slide="prev">
