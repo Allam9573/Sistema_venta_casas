@@ -6,4 +6,5 @@
 * Una vez creado su entorno virtual debera activarlo usando el siguiente comando: <br>"source ./nombre_entorno/bin/activate" (sustituya nombre_entorno por el nombre que usted coloco).
 * Ahora debera instalar los modulos correspondientes con el siguiente comando: <br>
 "pip install -r requirements.txt"
+* Debera ejecutar el script "db.sql" ubicado en la ruta raiz del proyecto, esto para crear una base de datos SQL.
 * Use el comando "sh run.sh" y esto debera desplegar el proyecto en el servidor de Flask.
