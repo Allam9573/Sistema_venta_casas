@@ -7,7 +7,6 @@ create table casas(
     precio decimal(10,2) not null,
     foto text not null
 );
-drop table usuarios;
 create table usuarios(
     id int primary key auto_increment,
     nombre varchar(100) not null,
