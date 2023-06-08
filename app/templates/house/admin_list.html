@@ -8,6 +8,9 @@ Panel Admin
 {% if data %}
 <div class="container">
     <h1 class="text-center display-1 my-5">Panel Administrativo</h1>
+    <form action="{{url_for('admin.get_house_id')}}" method="post">
+        <input type="text" name="buscar" placeholder="Buscar casa por vendedor..." class="form-control">
+    </form>
     <table class="table">
         <thead class="table-dark">
             <tr>
