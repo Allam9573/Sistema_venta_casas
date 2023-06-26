@@ -14,7 +14,7 @@ def houses_list():
     return render_template('house/admin_list.html', data=data)
 
 
-@bp.route('/houses_list_id', methods=['POST','GET'])
+@bp.route('/houses_list', methods=['POST','GET'])
 def get_house_id():
     data = ''
     if request.method == 'POST':
